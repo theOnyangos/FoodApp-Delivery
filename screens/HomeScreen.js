@@ -39,9 +39,7 @@ const HomeScreen = () => {
         ...,
         restaurant[]->{
           ...,
-          dishes[]->{
-            ...,
-          }
+          dishes[]->
         }
       }`
       );
@@ -96,21 +94,19 @@ const HomeScreen = () => {
         <Categories />
 
         {/* Featured Rows */}
-        <FeaturedRow
+        {featuredCategories?.map((category) => (
+          <FeaturedRow
+            key={category._id}
+            id={category._id}
+            title={category.name}
+            description={category.short_description}
+          />
+        ))}
+        {/* <FeaturedRow
           id="1"
           title="Featured"
           description="Paid placement for our partners"
-        />
-        <FeaturedRow
-          id="2"
-          title="Featured"
-          description="Paid placement for our partners"
-        />
-        <FeaturedRow
-          id="2"
-          title="Featured"
-          description="Paid placement for our partners"
-        />
+        /> */}
       </ScrollView>
     </SafeAreaView>
   );
